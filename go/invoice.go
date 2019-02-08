@@ -24,10 +24,6 @@
 
 package main
 
-/* Imports
- * 4 utility libraries for formatting, handling bytes, reading and writing JSON, and string manipulation
- * 2 specific Hyperledger Fabric specific libraries for Smart Contracts
- */
 import (
 	"bytes"
 	"encoding/json"
@@ -94,8 +90,7 @@ func (s *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response 
 	return shim.Error("Invalid Smart Contract function name.")
 }
 
-// Default
-// DONE
+
 func (s *SmartContract) initLedger(APIstub shim.ChaincodeStubInterface) sc.Response {
 	invoice := []Invoice{
 		Invoice{
@@ -123,8 +118,7 @@ func (s *SmartContract) initLedger(APIstub shim.ChaincodeStubInterface) sc.Respo
 	return shim.Success(nil)
 }
 
-// John Carlo Cuya
-// DONE
+
 func (s *SmartContract) raiseInvoice(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	if len(args) != 11 { // change size
@@ -140,8 +134,7 @@ func (s *SmartContract) raiseInvoice(APIstub shim.ChaincodeStubInterface, args [
 	return shim.Success(nil)
 }
 
-// Default
-// DONE
+
 func (s *SmartContract) raiseInvoiceWithJsonInput(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	if len(args) != 11 {
@@ -159,8 +152,7 @@ func (s *SmartContract) raiseInvoiceWithJsonInput(APIstub shim.ChaincodeStubInte
 	return shim.Success(nil)
 }
 
-// Joshua Caramancion
-// DONE
+
 func (s *SmartContract) displayAllInvoices(APIstub shim.ChaincodeStubInterface) sc.Response {
 
 	startKey := "INVOICE0"
@@ -204,8 +196,7 @@ func (s *SmartContract) displayAllInvoices(APIstub shim.ChaincodeStubInterface) 
 	return shim.Success(buffer.Bytes())
 }
 
-// Ron Vincent Exconde
-// DONE
+
 func (s *SmartContract) isGoodsReceived(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	if len(args) != 2 {
@@ -224,7 +215,6 @@ func (s *SmartContract) isGoodsReceived(APIstub shim.ChaincodeStubInterface, arg
 	return shim.Success(nil)
 }
 
-// Jenrielle Gaon
 func (s *SmartContract) isPaidToSupplier(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	if len(args) != 2 {
@@ -243,7 +233,7 @@ func (s *SmartContract) isPaidToSupplier(APIstub shim.ChaincodeStubInterface, ar
 	return shim.Success(nil)
 }
 
-// Jenrielle Gaon
+
 func (s *SmartContract) isPaidToBank(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	if len(args) != 2 {
@@ -262,7 +252,7 @@ func (s *SmartContract) isPaidToBank(APIstub shim.ChaincodeStubInterface, args [
 	return shim.Success(nil)
 }
 
-// Dont touch this yet
+
 func (s *SmartContract) getUser(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	// attr := args[0]
